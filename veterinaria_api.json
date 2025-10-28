@@ -1,0 +1,151 @@
+{
+  "info": {
+    "name": "Veterinaria API",
+    "_postman_id": "2c5d1f4e-8a8b-4a76-9e9c-91f2b3e31f2e",
+    "description": "Colección para probar la API de Veterinaria (Spring Boot)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Clientes",
+      "item": [
+        {
+          "name": "Listar todos los clientes",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/clientes"
+          }
+        },
+        {
+          "name": "Obtener cliente por ID",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/clientes/1"
+          }
+        },
+        {
+          "name": "Crear cliente",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Ana Torres\",\n  \"documento\": \"1098765432\",\n  \"telefono\": \"3001234567\",\n  \"correo\": \"ana.torres@example.com\",\n  \"direccion\": \"Cra 10 #20-15, Bogotá\"\n}"
+            },
+            "url": "{{base_url}}/api/clientes"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Mascotas",
+      "item": [
+        {
+          "name": "Listar todas las mascotas",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/mascotas"
+          }
+        },
+        {
+          "name": "Buscar mascotas por documento del cliente",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/mascotas/cliente?documento=1023456789"
+          }
+        },
+        {
+          "name": "Crear mascota",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Luna\",\n  \"especie\": \"Gato\",\n  \"raza\": \"Persa\",\n  \"sexo\": \"Hembra\",\n  \"fechaNac\": \"2022-01-15\",\n  \"idCliente\": 1\n}"
+            },
+            "url": "{{base_url}}/api/mascotas"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Veterinarios",
+      "item": [
+        {
+          "name": "Listar todos los veterinarios",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/veterinarios"
+          }
+        },
+        {
+          "name": "Crear veterinario",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Mario Gómez\",\n  \"especialidad\": \"Cirugía\",\n  \"registroProfesional\": \"MV-98765\"\n}"
+            },
+            "url": "{{base_url}}/api/veterinarios"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Citas",
+      "item": [
+        {
+          "name": "Listar todas las citas",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/citas"
+          }
+        },
+        {
+          "name": "Crear cita",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fechaHora\": \"2025-10-29T09:00:00\",\n  \"motivo\": \"Control\",\n  \"estado\": \"Programada\",\n  \"idMascota\": 1,\n  \"idVeterinario\": 1\n}"
+            },
+            "url": "{{base_url}}/api/citas"
+          }
+        },
+        {
+          "name": "Citas pendientes por veterinario",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/citas/pendientes/veterinario/1"
+          }
+        },
+        {
+          "name": "Historial de citas de una mascota",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/citas/mascota/1/historial"
+          }
+        },
+        {
+          "name": "Total de mascotas por especie",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/citas/reportes/mascotas-por-especie"
+          }
+        },
+        {
+          "name": "Veterinarios con más citas atendidas",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/citas/reportes/veterinarios-top"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:8080" }
+  ]
+}
