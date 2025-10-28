@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public interface CitaRepository extends JpaRepository<Cita, Integer> {
 
-    // Consultas nativas que pide el taller
+
     @Query(value = "SELECT * FROM cita WHERE id_veterinario = ?1 AND fecha_hora >= ?2 AND estado = 'Programada'", nativeQuery = true)
     List<Cita> findCitasPendientesPorVeterinario(int idVeterinario, LocalDateTime fechaActual);
 
