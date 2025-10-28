@@ -126,7 +126,7 @@ public class CitaService {
 
     /** 1) Mascotas por documento de cliente (retorna lista de Mascota) */
     public List<Mascota> mascotasPorDocumentoCliente(String documento) {
-        return mascotaRepo.findByClienteDocumento(documento);
+        return mascotaRepo.findMascotasPorDocumentoCliente(documento);
     }
 
     /** 2) Citas pendientes de un veterinario desde la fecha/hora actual */

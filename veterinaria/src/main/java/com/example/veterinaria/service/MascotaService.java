@@ -31,7 +31,7 @@ public class MascotaService {
     }
 
     public List<Mascota> listarPorDocumentoCliente(String documento) {
-        return mascotaRepo.findByClienteDocumento(documento);
+        return mascotaRepo.findMascotasPorDocumentoCliente(documento);
     }
 
     public Mascota crear(Mascota mascota) {
